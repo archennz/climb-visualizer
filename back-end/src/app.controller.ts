@@ -12,8 +12,13 @@ export class AppController {
   }
 
   @Get('routes')
-  getRoutes(): string {
+  getRoutes(): Promise<any> {
     return this.searchService.search()
+  }
+
+  @Get('data')
+  getData(): any {
+    return this.searchService.initializeElastic()
   }
 }
 

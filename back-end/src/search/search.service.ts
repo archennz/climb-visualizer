@@ -1,21 +1,29 @@
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
 import fetch from 'node-fetch';
+import * as convert from 'csvtojson'
+
+// interface Source {
+//   foo: string
+// }
 
 @Injectable()
 export class SearchService {
   constructor(private readonly elasticsearchService: ElasticsearchService) {}
 
-  search(): any {
-    return this.elasticsearchService.search({
+// this is good enough for now I think 
+  async search() {
+    const response = await this.elasticsearchService.search({
       index: 'routes',
       body: {
         query: {
-          match: { hello: 'world' },
+          match: { type: 'trad' },
         },
       },
     });
-  }
+    const body = response.body.hits.hits.map(hit => hit._source)
+    return body
+  };
 
   makeIndex(): any {
     return this.elasticsearchService.indices.create(
@@ -39,11 +47,30 @@ export class SearchService {
     )
   }
 
+  // this is the function that downloads the raw data from mtnproj
   async getData(): Promise<any> {
-    const data: Response = await fetch('https://github.com/archennz/mtnproj/blob/master/app_data/small_data.csv')
-    const csv: String = await data.text()
-    return csv
+    const response: Response = await fetch('https://raw.githubusercontent.com/archennz/mtnproj/master/app_data/small_data.csv')
+    const csv = await response.text()
+    const json = await convert().fromString(csv)
+    return json.slice(0,5)
     }
   
+  // now want to write the function that takes one entry in json and converts it to
+  // the thing that want to put into the data base
+  // we will deal with the adding little vibrations later
+  // probably should make index first and then decide exactly what should be written into database
+  async writeToElastic(climbJson): Promise<any> {
+    await this.elasticsearchService.index(
+      {
+        index: 'routes',
+        body: climbJson
+      }
+    )
+  }
+
+  async initializeElastic(): Promise<any> {
+    const routes = await this.getData()
+    routes.map(route => this.writeToElastic(route))
+  }
 
 }
