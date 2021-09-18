@@ -4,6 +4,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import ProTip from './ProTip';
+import { AppBar, Toolbar } from '@mui/material';
+import Map from './Map';
 
 function Copyright() {
   return (
@@ -19,6 +21,11 @@ function Copyright() {
 
 export default function App() {
   return (
+    <React.Fragment>
+    <AppBar position="fixed">
+      <Toolbar>This is my climbing App</Toolbar>
+    </AppBar>
+    <Map></Map>
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
@@ -28,5 +35,6 @@ export default function App() {
         <Copyright />
       </Box>
     </Container>
+    </React.Fragment>
   );
 }
