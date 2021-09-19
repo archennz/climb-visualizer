@@ -22,19 +22,26 @@ function Copyright() {
 export default function App() {
   return (
     <React.Fragment>
-    <AppBar position="fixed">
-      <Toolbar>This is my climbing App</Toolbar>
-    </AppBar>
-    <Map></Map>
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v5-beta example with TypeScript
-        </Typography>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+      <AppBar position="fixed">
+        <Toolbar>
+          <Typography
+            variant="h6"
+            align="center"
+            component="h1">
+            Rock Climb Visualizer
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Map></Map>
+      <Container maxWidth="sm">
+        <Box sx={{ my: 4 }}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Create React App v5-beta example with TypeScript
+          </Typography>
+          <ProTip />
+          <Copyright />
+        </Box>
+      </Container>
     </React.Fragment>
   );
 }
