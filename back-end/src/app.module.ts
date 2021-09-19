@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { SearchModule } from './search/search.module';
 
 @Module({
-  imports: [SearchModule],
   controllers: [AppController],
   providers: [AppService],
 })
