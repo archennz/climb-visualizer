@@ -20,6 +20,19 @@ function Copyright() {
 }
 
 export default function App() {
+  const [routes, setRoutes] = React.useState([])
+
+  React.useEffect(() => {
+      async function getData() {
+        const response = await fetch("http://localhost:3000/data");
+        const data = await response.json();
+        setRoutes(data);
+      }
+      console.log("yo");
+      getData();
+  }, []);
+
+
   return (
     <React.Fragment>
       <AppBar position="fixed">
@@ -32,7 +45,7 @@ export default function App() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Map></Map>
+      <Map routes={routes}></Map>
       <Container maxWidth="sm">
         <Box sx={{ my: 4 }}>
           <Typography variant="h4" component="h1" gutterBottom>
