@@ -12,10 +12,10 @@ function MenuBar(props: any): JSX.Element {
     setShowFilter(false);
   };
   return (
-    <Box>
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="h1">
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Rock Climb Visualizer
           </Typography>
           <Button color="inherit" onClick={() => setShowFilter(true)}>
