@@ -4,8 +4,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import ProTip from "./ProTip";
-import { AppBar, Toolbar } from "@mui/material";
-import Map from "./Map";
+import Map from "./map/Map";
+import MenuBar from "./toolbar/MenuBar";
 
 function Copyright() {
   return (
@@ -34,13 +34,7 @@ export default function App() {
 
   return (
     <React.Fragment>
-      <AppBar position="fixed">
-        <Toolbar>
-          <Typography variant="h6" align="center" component="h1">
-            Rock Climb Visualizer
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <MenuBar></MenuBar>
       <Map routes={routes}></Map>
       <Container maxWidth="sm">
         <Box sx={{ my: 4 }}>
