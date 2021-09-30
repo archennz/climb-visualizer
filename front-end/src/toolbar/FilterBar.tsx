@@ -32,8 +32,14 @@ function FilterBar(props: any): JSX.Element {
   ];
   const onClose = props.onClose;
   return (
-    <Box>
-      <Drawer anchor="right" open={props.open}>
+      <Drawer 
+      // sx={{width: props.drawerWidth,           
+      //   '& .MuiDrawer-paper': {
+      //   width: props.drawerWidth,
+      //   boxSizing: 'border-box'}
+      //   }} 
+        style={{width: "180px"}}
+        anchor="right" open={props.open}>
         <Button onClick={onClose}>Close me!</Button>
         <Slider
           min={marksMin}
@@ -53,7 +59,6 @@ function FilterBar(props: any): JSX.Element {
         <FormControlLabel control={<Checkbox />} label="X"></FormControlLabel>
         <FormControlLabel control={<Checkbox />} label="R"></FormControlLabel>
       </Drawer>
-    </Box>
   );
 }
 

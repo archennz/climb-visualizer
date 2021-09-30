@@ -26,7 +26,7 @@ function Map(props: any): JSX.Element {
       mapboxApiAccessToken={TOKEN}
       {...viewport}
       width="100vw"
-      height="80vh"
+      height="88vh"
       onViewportChange={setViewport}
     >
       {markers}
