@@ -1,13 +1,11 @@
 import * as React from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import ReactMapGL, { Marker, Popup, Source, Layer } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import RouteMarker from "./RouteMarker";
 import RouteInfo from "../models/routeInfo";
 
 const TOKEN = process.env.REACT_APP_MAP_TOKEN || "";
 
-// TODO: need to work out map pro
-// interface
 
 const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
   const [viewport, setViewport] = React.useState({
