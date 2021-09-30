@@ -20,7 +20,6 @@ function Copyright() {
 }
 
 export default function App() {
-  // TODO: this must have types
   const [routes, setRoutes] = React.useState<RouteInfo[]>([]);
 
   // initialize app grabbing data from endpoint
