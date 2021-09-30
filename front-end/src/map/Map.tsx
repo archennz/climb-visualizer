@@ -5,6 +5,10 @@ import RouteMarker from "./RouteMarker";
 
 const TOKEN = process.env.REACT_APP_MAP_TOKEN || "";
 
+// TODO: need to work out map pro
+// interface
+
+
 function Map(props: any): JSX.Element {
   const [viewport, setViewport] = React.useState({
     latitude: 34.012,

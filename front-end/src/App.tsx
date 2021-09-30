@@ -18,16 +18,19 @@ function Copyright() {
   );
 }
 
+
 export default function App() {
+  // TODO: this must have types
   const [routes, setRoutes] = React.useState([]);
 
+  // initialize app grabbing data from endpoint
+  // TODO: change hardcoded endpoint
   React.useEffect(() => {
     async function getData() {
       const response = await fetch("http://localhost:3000/data");
       const data = await response.json();
       setRoutes(data);
     }
-    console.log("yo");
     getData();
   }, []);
 
