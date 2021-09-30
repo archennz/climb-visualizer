@@ -1,10 +1,8 @@
-import { red } from "@mui/material/colors";
 import * as React from "react";
 import { Marker, Popup } from "react-map-gl";
 import RouteInfo from "../models/routeInfo";
 
-
-const RouteMarker: React.FunctionComponent<{route: RouteInfo}> = (props)=> {
+const RouteMarker: React.FC<{ route: RouteInfo }> = (props) => {
   const key = props.route.id;
   const longitude = props.route.longitude;
   const latitude = props.route.latitude;
@@ -16,7 +14,15 @@ const RouteMarker: React.FunctionComponent<{route: RouteInfo}> = (props)=> {
       onMouseLeave={() => setDisplayPopup(false)}
     >
       <Marker key={key} longitude={longitude} latitude={latitude}>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg" />
+        <svg
+          width="16px"
+          height="16px"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+        >
+          <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+        </svg>
       </Marker>
       {displayPopup && (
         <Popup longitude={longitude} latitude={latitude}>
@@ -25,6 +31,6 @@ const RouteMarker: React.FunctionComponent<{route: RouteInfo}> = (props)=> {
       )}
     </div>
   );
-}
+};
 
 export default RouteMarker;

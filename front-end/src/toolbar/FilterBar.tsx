@@ -32,33 +32,32 @@ function FilterBar(props: any): JSX.Element {
   ];
   const onClose = props.onClose;
   return (
-      <Drawer 
-      // sx={{width: props.drawerWidth,           
+    <Drawer
+      // sx={{width: props.drawerWidth,
       //   '& .MuiDrawer-paper': {
       //   width: props.drawerWidth,
       //   boxSizing: 'border-box'}
-      //   }} 
-        style={{width: "180px"}}
-        anchor="right" open={props.open}>
-        <Button onClick={onClose}>Close me!</Button>
-        <Slider
-          min={marksMin}
-          max={marksMax}
-          step={1}
-          marks={marks}
-          value={gradeRange}
-          onChange={handleGradeChange}
-          orientation="vertical"
-          disableSwap
-        ></Slider>
-        <Typography>Rating:</Typography>
-        <FormControlLabel
-          control={<Checkbox />}
-          label="PG13"
-        ></FormControlLabel>
-        <FormControlLabel control={<Checkbox />} label="X"></FormControlLabel>
-        <FormControlLabel control={<Checkbox />} label="R"></FormControlLabel>
-      </Drawer>
+      //   }}
+      style={{ width: "180px" }}
+      anchor="right"
+      open={props.open}
+    >
+      <Button onClick={onClose}>Close me!</Button>
+      <Slider
+        min={marksMin}
+        max={marksMax}
+        step={1}
+        marks={marks}
+        value={gradeRange}
+        onChange={handleGradeChange}
+        orientation="vertical"
+        disableSwap
+      ></Slider>
+      <Typography>Rating:</Typography>
+      <FormControlLabel control={<Checkbox />} label="PG13"></FormControlLabel>
+      <FormControlLabel control={<Checkbox />} label="X"></FormControlLabel>
+      <FormControlLabel control={<Checkbox />} label="R"></FormControlLabel>
+    </Drawer>
   );
 }
 

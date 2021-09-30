@@ -4,9 +4,9 @@ export default class RouteInfo {
   latitude: number;
 
   constructor(routeJson: any) {
-    this.id = routeJson['id']
-    this.longitude = routeJson['longitude']
-    this.latitude = routeJson['latitude']
+    this.id = routeJson["id"];
+    this.longitude = routeJson["longitude"];
+    this.latitude = routeJson["latitude"];
     // probably more to come
     // maybe the wobble will come here
   }
