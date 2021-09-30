@@ -2,6 +2,7 @@ import * as React from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import RouteMarker from "./RouteMarker";
+import RouteInfo from "../models/routeInfo";
 
 const TOKEN = process.env.REACT_APP_MAP_TOKEN || "";
 
@@ -9,7 +10,7 @@ const TOKEN = process.env.REACT_APP_MAP_TOKEN || "";
 // interface
 
 
-function Map(props: any): JSX.Element {
+const Map: React.FunctionComponent<{routes: RouteInfo[]}> = (props)  => {
   const [viewport, setViewport] = React.useState({
     latitude: 34.012,
     longitude: -116.168,
@@ -19,7 +20,7 @@ function Map(props: any): JSX.Element {
   // Only rerender markers if props.routes has changed
   const markers = React.useMemo(
     () =>
-      props.routes.map((route: any) => (
+      props.routes.map(route => (
         <RouteMarker route={route}></RouteMarker>
       )),
     [props.routes]

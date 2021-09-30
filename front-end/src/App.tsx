@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Map from "./map/Map";
 import MenuBar from "./toolbar/MenuBar";
+import RouteInfo from "./models/routeInfo"
 
 function Copyright() {
   return (
@@ -21,7 +22,7 @@ function Copyright() {
 
 export default function App() {
   // TODO: this must have types
-  const [routes, setRoutes] = React.useState([]);
+  const [routes, setRoutes] = React.useState<RouteInfo[]>([]);
 
   // initialize app grabbing data from endpoint
   // TODO: change hardcoded endpoint
@@ -29,7 +30,8 @@ export default function App() {
     async function getData() {
       const response = await fetch("http://localhost:3000/data");
       const data = await response.json();
-      setRoutes(data);
+      const routes = data.map((routeJson:any) => new RouteInfo(routeJson))
+      setRoutes(routes);
     }
     getData();
   }, []);

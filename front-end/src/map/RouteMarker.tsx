@@ -1,9 +1,10 @@
 import { red } from "@mui/material/colors";
 import * as React from "react";
 import { Marker, Popup } from "react-map-gl";
+import RouteInfo from "../models/routeInfo";
 
 
-function RouteMarker(props: any): JSX.Element {
+const RouteMarker: React.FunctionComponent<{route: RouteInfo}> = (props)=> {
   const key = props.route.id;
   const longitude = props.route.longitude;
   const latitude = props.route.latitude;
