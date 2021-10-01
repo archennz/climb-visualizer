@@ -10,9 +10,11 @@
     "@types/geojson": "^7946.0.8",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "mapbox-gl": "^1.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-map-gl": "^6.1.17",
+    "react-mapbox-gl": "^5.1.1",
     "react-scripts": "latest",
     "typescript": "latest"
   },

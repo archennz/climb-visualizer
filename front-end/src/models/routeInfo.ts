@@ -18,16 +18,14 @@ export default class RouteInfo {
   }
 
   getCoordinates(): Position {
-    return [this.latitude, this.longitude]
+    return [this.longitude, this.latitude]
   }
 
   getFeature(): Feature {
     return {
       type: "Feature",
       geometry: {type: "Point", coordinates: this.getCoordinates()},
-      properties: {
-        'weight': 1
-      }
+      properties: {}
     }
   }
 }
