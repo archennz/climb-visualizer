@@ -5,37 +5,17 @@ import { Box } from "@mui/system";
 import FilterBar from "./FilterBar";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
-function MenuBar(props: any): JSX.Element {
-  const drawerWidth = 2400;
-  const [showFilter, setShowFilter] = React.useState(false);
 
-  const handleDrawerClose = () => {
-    setShowFilter(false);
-  };
+const MenuBar: React.FC = () => {
+  const drawerWidth = 240;
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Rock Climb Visualizer
           </Typography>
-          <Button
-            variant="outlined"
-            color="error"
-            size="medium"
-            endIcon={<FilterAltIcon />}
-            onClick={() => setShowFilter(true)}
-          >
-            Filters
-          </Button>
         </Toolbar>
       </AppBar>
-      <FilterBar
-        width={drawerWidth}
-        open={showFilter}
-        onClose={handleDrawerClose}
-      ></FilterBar>
-    </Box>
   );
 }
 

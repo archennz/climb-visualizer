@@ -4,12 +4,13 @@ import {
   Drawer,
   FormControlLabel,
   Slider,
+  Toolbar,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
 
-function FilterBar(props: any): JSX.Element {
+const FilterBar: React.FC<{drawerWidth : number}> = (props) => {
   const [gradeRange, setGradeRange] = React.useState([0, 10]);
 
   const handleGradeChange = (event: any, newValue: any) => {
@@ -30,19 +31,17 @@ function FilterBar(props: any): JSX.Element {
       label: "5.5",
     },
   ];
-  const onClose = props.onClose;
   return (
     <Drawer
-      // sx={{width: props.drawerWidth,
-      //   '& .MuiDrawer-paper': {
-      //   width: props.drawerWidth,
-      //   boxSizing: 'border-box'}
-      //   }}
-      style={{ width: "180px" }}
+      variant="permanent"
+      sx={{
+        width: props.drawerWidth,
+        flexShrink: 0,
+        [`& .MuiDrawer-paper`]: { width: props.drawerWidth, boxSizing: 'border-box' },
+      }}
       anchor="right"
-      open={props.open}
     >
-      <Button onClick={onClose}>Close me!</Button>
+      <Toolbar/>
       <Slider
         min={marksMin}
         max={marksMax}

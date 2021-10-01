@@ -6,6 +6,8 @@ import Link from "@mui/material/Link";
 import Map from "./map/Map";
 import MenuBar from "./toolbar/MenuBar";
 import RouteInfo from "./models/routeInfo";
+import FilterBar from "./toolbar/FilterBar";
+import { Toolbar } from "@mui/material";
 
 function Copyright() {
   return (
@@ -20,6 +22,7 @@ function Copyright() {
 }
 
 export default function App() {
+  const drawerWidth = 240;
   const [routes, setRoutes] = React.useState<RouteInfo[]>([]);
 
   // initialize app grabbing data from endpoint
@@ -35,14 +38,18 @@ export default function App() {
   }, []);
 
   return (
-    <React.Fragment>
-      <MenuBar></MenuBar>
-      <Map routes={routes}></Map>
-      <Container maxWidth="sm">
+    <Box sx={{ display: 'flex' }}>
+      <MenuBar />
+      <Box component="main" sx={{ flexGrow: 1}}>
+        <Toolbar />
+        <Map routes={routes}></Map>
+      </Box>
+      <FilterBar drawerWidth={240}></FilterBar>
+      {/* <Container maxWidth="sm">
         <Box sx={{ my: 1 }}>
           <Copyright />
         </Box>
-      </Container>
-    </React.Fragment>
+      </Container> */}
+    </Box>
   );
 }
