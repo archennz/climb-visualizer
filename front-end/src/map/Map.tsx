@@ -7,17 +7,28 @@ import RouteInfo from "../models/routeInfo";
 
 const TOKEN = process.env.REACT_APP_MAP_TOKEN || "";
 
-const geojson: Feature = {
+const fakeGeojson: Feature = {
   type: "Feature",
   geometry: { type: "Point", coordinates: [-122.4, 37.8] },
   properties: {}
 };
 
+const fakeGeojsonTwo: Feature = {
+  type: "Feature",
+  geometry: { type: "Point", coordinates: [-128.4, 37.8] },
+  properties: {}
+};
+
+
 const layerStyle: LayerProps = {
   type: "heatmap",
   paint: {
     // Increase the heatmap weight based on frequency and property magnitude
-    // 'heatmap-weight': ['interpolate', ['linear'], ['get', 'mag'], 0, 0, 6, 1],
+    'heatmap-weight': {
+      property: 'weight',
+      type: 'exponential',
+      stops: [[0,0], [5,2]]
+    },
     // Increase the heatmap color weight weight by zoom level
     // heatmap-intensity is a multiplier on top of heatmap-weight
     'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 1, 6, 3],
@@ -55,14 +66,21 @@ const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
     zoom: 9,
   });
 
+  const [geojson, setGeojson] = React.useState<FeatureCollection>()
 
-  const coordinates = props.routes.map((route) => route.getFeature())
-  const dummy_geojson: FeatureCollection = {
-    type: "FeatureCollection",
-    features: coordinates
-  }
+  // render routes async
+  React.useEffect( () => {
+    const features = props.routes.map((route) => route.getFeature())
+    console.log(features)
+    const geojson: FeatureCollection = {
+      type: "FeatureCollection",
+      features: [fakeGeojson, fakeGeojsonTwo]
+    }
+    setGeojson(geojson)
+  } , [props.routes])
 
-  const [geojson, setGeojson] = React.useState(dummy_geojson)
+
+
 
   
 
@@ -81,8 +99,9 @@ const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
       height="88vh"
       onViewportChange={setViewport}
     >
-      <Source id="my-data" type="geojson" data={dummy_geojson}>
-        <Layer {...layerStyle} />
+      <Source id="my-data" type="geojson" data={geojson}>
+        <Layer {...layerStyle}>
+        </Layer>
       </Source>
       {markers}
     </ReactMapGL>
