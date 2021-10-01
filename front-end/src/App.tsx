@@ -48,8 +48,8 @@ export default function App() {
   // now need to pop the states up from filterbar
   // and use it to do the filter stuff
   const [filter, setFilter] = React.useState<FilterProps>({
-    maxGrade: 15,
-    minGrade: 0,
+    maxGrade: 11,
+    minGrade: 3,
     isPG: false,
     isX: false,
     isR: false,

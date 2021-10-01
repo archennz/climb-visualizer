@@ -1,4 +1,4 @@
-import { CompareOutlined } from "@mui/icons-material";
+import { CompareOutlined, Preview } from "@mui/icons-material";
 import {
   Button,
   Checkbox,
@@ -31,25 +31,31 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
     setGradeRange(newValue);
   };
 
-  // work out types for this
   const gradeCommitHandler = (event: any, newValue: any) => {
     console.log(newValue);
     const [minGrade, maxGrade] = newValue;
     props.filterHandler(
-      (prev) => { ...prev, maxGrade, minGrade }
+      (prevFilter) => {
+        return { ... prevFilter, minGrade: minGrade, maxGrade: maxGrade}
+      }
     )
   };
+
   const isPGHandler = () => {
     console.log("changed");
     setIsPG((prev) => !prev);
+    // do the hooks for this later
+  };
   };
 
   const isXHandler = () => {
     setIsX((prev) => !prev);
+    // do the hooks for this later
   };
 
   const isRHandler = () => {
     setIsR((prev) => !prev);
+    // do the hooks for this later
   };
 
   const marksMin = 0;
