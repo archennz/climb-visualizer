@@ -21,6 +21,14 @@ function Copyright() {
   );
 }
 
+export interface FilterProps {
+  maxGrade: number;
+  minGrade: number;
+  isPG: boolean;
+  isX: boolean;
+  isR: boolean;
+}
+
 export default function App() {
   const drawerWidth = 100;
   const [routes, setRoutes] = React.useState<RouteInfo[]>([]);
@@ -37,14 +45,24 @@ export default function App() {
     getData();
   }, []);
 
+  // now need to pop the states up from filterbar
+  // and use it to do the filter stuff
+  const [filter, setFilter] = React.useState<FilterProps>({
+    maxGrade: 15,
+    minGrade: 0,
+    isPG: false,
+    isX: false,
+    isR: false,
+  });
+
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <MenuBar />
-      <Box component="main" sx={{ flexGrow: 1}}>
+      <Box component="main" sx={{ flexGrow: 1 }}>
         <Toolbar />
         <Map routes={routes}></Map>
       </Box>
-      <FilterBar drawerWidth={240}></FilterBar>
+      <FilterBar filterHandler={setFilter} drawerWidth={240}></FilterBar>
       {/* <Container maxWidth="sm">
         <Box sx={{ my: 1 }}>
           <Copyright />
