@@ -45,8 +45,8 @@ const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
     <ReactMapGL
       mapboxApiAccessToken={TOKEN}
       {...viewport}
-      width="100vw"
-      height="100vh"
+      width="fit"
+      height="calc(100vh - 64px)"
       onViewportChange={setViewport}
     >
       <Source id="my-data" type="geojson" data={geojson}>

@@ -22,7 +22,7 @@ function Copyright() {
 }
 
 export default function App() {
-  const drawerWidth = 240;
+  const drawerWidth = 100;
   const [routes, setRoutes] = React.useState<RouteInfo[]>([]);
 
   // initialize app grabbing data from endpoint
