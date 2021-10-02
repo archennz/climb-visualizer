@@ -14,5 +14,10 @@ export class AppController {
   getData(): any {
     return this.appService.getData()
   }
+
+  @Get('dataVib')
+  getDataWithVibrations(): any {
+    return this.appService.getDataWithVibrations()
+  }
 }
 
