@@ -20,6 +20,6 @@ export class AppService {
       'stars': 'number'
     }
     }).fromString(csv)
-    return json.slice(0,5)
+    return json
     }
 }
