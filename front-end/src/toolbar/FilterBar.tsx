@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
+import { createTrue } from "typescript";
 import { FilterProps } from "../App";
 
 export interface FilterBarProps {
@@ -22,9 +23,9 @@ export interface FilterBarProps {
 
 const FilterBar: React.FC<FilterBarProps> = (props) => {
   const [gradeRange, setGradeRange] = React.useState<number[]>([3, 11]);
-  const [isPG, setIsPG] = React.useState<boolean>(false);
-  const [isX, setIsX] = React.useState<boolean>(false);
-  const [isR, setIsR] = React.useState<boolean>(false);
+  const [isPG, setIsPG] = React.useState<boolean>(true);
+  const [isX, setIsX] = React.useState<boolean>(true);
+  const [isR, setIsR] = React.useState<boolean>(true);
 
   // work out types for this
   const handleGradeChange = (event: any, newValue: any) => {
@@ -39,20 +40,28 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
     )
   };
 
-  const isPGHandler = () => {
-    console.log("changed");
+  // TODO: fix type on this
+  const isPGHandler = (event: any) => {
     setIsPG((prev) => !prev);
-    // do the hooks for this later
+    props.filterHandler(
+      (prevFilter) => ({...prevFilter, includePG : event.target.checked })
+    )
   };
 
-  const isXHandler = () => {
+  // TODO: fix type on this
+  const isXHandler = (event: any) => {
     setIsX((prev) => !prev);
-    // do the hooks for this later
+    props.filterHandler(
+      (prevFilter) => ({...prevFilter, includeX : event.target.checked })
+    )
   };
 
-  const isRHandler = () => {
+  // TODO: fix type on this
+  const isRHandler = (event: any) => {
     setIsR((prev) => !prev);
-    // do the hooks for this later
+    props.filterHandler(
+      (prevFilter) => ({...prevFilter, includeR : event.target.checked })
+    )
   };
 
   const marksMin = 1;
@@ -104,19 +113,19 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
           </Box>
           <FormControlLabel
             control={<Checkbox />}
-            value={isPG}
+            checked={isPG}
             label="PG13"
             onChange={isPGHandler}
           ></FormControlLabel>
           <FormControlLabel
             control={<Checkbox />}
-            value={isX}
+            checked={isX}
             label="X"
             onChange={isXHandler}
           ></FormControlLabel>
           <FormControlLabel
             control={<Checkbox />}
-            value={isR}
+            checked={isR}
             label="R"
             onChange={isRHandler}
           ></FormControlLabel>

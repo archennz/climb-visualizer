@@ -7,7 +7,8 @@ export default class RouteInfo {
   name: string;
   rating: string;
   grade: number;
-  stars: number
+  stars: number;
+  safety: "S"|"R"|"PG13"|"X";
 
   constructor(routeJson: any) {
     this.id = routeJson["id"];
@@ -17,6 +18,7 @@ export default class RouteInfo {
     this.rating = routeJson["rating"];
     this.grade = routeJson["grade"]
     this.stars = routeJson["stars"]
+    this.safety = routeJson["safety"]
   }
 
   getCoordinates(): Position {

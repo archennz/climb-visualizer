@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Marker, Popup } from "react-map-gl";
-import { isPropertySignature } from "typescript";
 import RouteInfo from "../models/routeInfo";
 
 const RouteCard: React.FC<{ route: RouteInfo }> = (props) => {
@@ -21,7 +20,7 @@ const RouteMarker: React.FC<{ route: RouteInfo }> = (props) => {
   const latitude = props.route.latitude;
   const [displayPopup, setDisplayPopup] = React.useState(false);
 
-  //TODO the offset and sizes are hard coded
+  //TODO the popup is displayed at every zoom level, maybe don't want this
   return (
     <div
       onMouseEnter={() => setDisplayPopup(true)}
@@ -40,6 +39,7 @@ const RouteMarker: React.FC<{ route: RouteInfo }> = (props) => {
           viewBox="0 0 16 16"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
+          fillOpacity="0.0"
         >
           <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
         </svg>

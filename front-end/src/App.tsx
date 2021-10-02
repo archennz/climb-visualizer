@@ -24,9 +24,9 @@ function Copyright() {
 export interface FilterProps {
   maxGrade: number;
   minGrade: number;
-  isPG: boolean;
-  isX: boolean;
-  isR: boolean;
+  includePG: boolean;
+  includeX: boolean;
+  includeR: boolean;
 }
 
 export default function App() {
@@ -50,14 +50,22 @@ export default function App() {
   const [filterBy, setFilterBy] = React.useState<FilterProps>({
     maxGrade: 14,
     minGrade: 1,
-    isPG: false,
-    isX: false,
-    isR: false,
+    includePG: true,
+    includeX: true,
+    includeR: true,
   });
 
   React.useEffect(() => {
     console.log(filterBy)
-    const filteredRoutes = routes.filter(routes => (routes.grade < filterBy.maxGrade && routes.grade> filterBy.minGrade))
+    const filterByGradeAndRating = (route: RouteInfo) => {
+      const byGrade = route.grade < filterBy.maxGrade && route.grade> filterBy.minGrade;
+      const isS = route.safety == "S"
+      const isPG = route.safety == "PG13" && filterBy.includePG
+      const isX = route.safety == "X" && filterBy.includeX
+      const isR = route.safety == "R" && filterBy.includeR
+      return byGrade && (isS || isPG || isX || isR)
+    }
+    const filteredRoutes = routes.filter(route => (filterByGradeAndRating(route)))
     setRoutesDisplayed(filteredRoutes)
   }, [filterBy]);
 
