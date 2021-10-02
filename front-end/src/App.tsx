@@ -32,7 +32,7 @@ export interface FilterProps {
 export default function App() {
   const drawerWidth = 100;
   const [routes, setRoutes] = React.useState<RouteInfo[]>([]);
-
+  const [routesDislayed, setRoutesDisplayed] = React.useState<RouteInfo[]>([]);
   // initialize app grabbing data from endpoint
   // TODO: change hardcoded endpoint
   React.useEffect(() => {
@@ -47,22 +47,28 @@ export default function App() {
 
   // now need to pop the states up from filterbar
   // and use it to do the filter stuff
-  const [filter, setFilter] = React.useState<FilterProps>({
-    maxGrade: 11,
-    minGrade: 3,
+  const [filterBy, setFilterBy] = React.useState<FilterProps>({
+    maxGrade: 14,
+    minGrade: 1,
     isPG: false,
     isX: false,
     isR: false,
   });
+
+  React.useEffect(() => {
+    console.log(filterBy)
+    const filteredRoutes = routes.filter(routes => (routes.grade < filterBy.maxGrade && routes.grade> filterBy.minGrade))
+    setRoutesDisplayed(filteredRoutes)
+  }, [filterBy]);
 
   return (
     <Box sx={{ display: "flex" }}>
       <MenuBar />
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Toolbar />
-        <Map routes={routes}></Map>
+        <Map routes={routesDislayed}></Map>
       </Box>
-      <FilterBar filterHandler={setFilter} drawerWidth={240}></FilterBar>
+      <FilterBar filterHandler={setFilterBy} drawerWidth={240}></FilterBar>
       {/* <Container maxWidth="sm">
         <Box sx={{ my: 1 }}>
           <Copyright />

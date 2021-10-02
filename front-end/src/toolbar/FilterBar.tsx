@@ -35,9 +35,7 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
     console.log(newValue);
     const [minGrade, maxGrade] = newValue;
     props.filterHandler(
-      (prevFilter) => {
-        return { ... prevFilter, minGrade: minGrade, maxGrade: maxGrade}
-      }
+      (prevFilter) => ({...prevFilter, minGrade: minGrade, maxGrade: maxGrade})
     )
   };
 
@@ -45,7 +43,6 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
     console.log("changed");
     setIsPG((prev) => !prev);
     // do the hooks for this later
-  };
   };
 
   const isXHandler = () => {
@@ -58,8 +55,8 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
     // do the hooks for this later
   };
 
-  const marksMin = 0;
-  const marksMax = 15;
+  const marksMin = 1;
+  const marksMax = 14;
   const marksList = Array.from({ length: marksMax + 1 }).map((_, index) => {
     const num = index + marksMin;
     return {

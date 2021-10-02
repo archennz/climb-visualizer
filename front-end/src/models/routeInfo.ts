@@ -6,6 +6,8 @@ export default class RouteInfo {
   latitude: number;
   name: string;
   rating: string;
+  grade: number;
+  stars: number
 
   constructor(routeJson: any) {
     this.id = routeJson["id"];
@@ -13,6 +15,8 @@ export default class RouteInfo {
     this.latitude = routeJson["latitude"];
     this.name = routeJson["name"];
     this.rating = routeJson["rating"];
+    this.grade = routeJson["grade"]
+    this.stars = routeJson["stars"]
     // probably more to come
     // maybe the wobble will come here
   }
