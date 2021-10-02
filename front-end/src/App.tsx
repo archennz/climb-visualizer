@@ -67,7 +67,7 @@ export default function App() {
     }
     const filteredRoutes = routes.filter(route => (filterByGradeAndRating(route)))
     setRoutesDisplayed(filteredRoutes)
-  }, [filterBy]);
+  }, [filterBy, routes]);
 
   return (
     <Box sx={{ display: "flex" }}>

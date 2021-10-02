@@ -18,7 +18,7 @@ const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
   const [viewport, setViewport] = React.useState({
     latitude: 34.012,
     longitude: -116.168,
-    zoom: 9,
+    zoom: 11,
   });
 
   const [geojson, setGeojson] = React.useState<FeatureCollection>();
@@ -37,7 +37,7 @@ const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
   // Only rerender markers if props.routes has changed
   const markers = React.useMemo(
     () =>
-      props.routes.map((route) => <RouteMarker route={route}></RouteMarker>),
+      props.routes.map((route) => <RouteMarker key={route.id} route={route}></RouteMarker>),
     [props.routes]
   );
 
