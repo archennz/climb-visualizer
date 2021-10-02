@@ -1,21 +1,26 @@
 import { LayerProps } from "react-map-gl";
 
 // fix the layer props on this later
-export const layerStyle: LayerProps = {
+export const heatMapLayerStyle: LayerProps = {
   type: "heatmap",
   paint: {
     // Increase the heatmap weight based on frequency and property magnitude
     "heatmap-weight": {
-      property: "weight",
+      property: "stars",
       type: "exponential",
       stops: [
         [0, 0],
-        [5, 2],
+        [5, 1],
       ],
     },
     // Increase the heatmap color weight weight by zoom level
     // heatmap-intensity is a multiplier on top of heatmap-weight
-    "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 0, 1, 6, 3],
+    "heatmap-intensity": {
+      stops: [
+        [11, 1],
+        [15, 3]
+      ]
+    },
     // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
     // Begin color ramp at 0-stop with a 0-transparancy color
     // to create a blur-like effect.
@@ -37,8 +42,31 @@ export const layerStyle: LayerProps = {
       "rgb(255,201,101)",
     ],
     // Adjust the heatmap radius by zoom level
-    "heatmap-radius": ["interpolate", ["linear"], ["zoom"], 0, 2, 6, 20],
+    "heatmap-radius": {
+      stops: [
+        [11, 15],
+        [15, 20]
+      ]
+    },
     // Transition from heatmap to circle layer by zoom level
-    "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 7, 1, 9, 0],
+    "heatmap-opacity": {
+      stops: [
+        [14, 1],
+        [15, 0]
+      ]
+    },
   },
 };
+
+export const circleLayerStyle: LayerProps = {
+  type: 'circle',
+  minzoom: 14,
+  paint: {
+    'circle-opacity': {
+      stops: [
+        [14, 0],
+        [15, 1]
+      ]
+    } 
+  }
+}

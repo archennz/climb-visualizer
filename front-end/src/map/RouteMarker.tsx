@@ -9,7 +9,8 @@ const RouteCard: React.FC<{ route: RouteInfo }> = (props) => {
   return (
     <Popup longitude={longitude} latitude={latitude}>
       <div>Name: {props.route.name}</div>
-      <div>Rating: {props.route.rating}</div>
+      <div>Difficulty: {props.route.rating}</div>
+      <div>Popularity: {props.route.stars}</div>
     </Popup>
   );
 };

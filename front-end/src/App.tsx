@@ -30,9 +30,9 @@ export interface FilterProps {
 }
 
 export default function App() {
-  const drawerWidth = 100;
+  const drawerWidth = 150;
   const [routes, setRoutes] = React.useState<RouteInfo[]>([]);
-  const [routesDislayed, setRoutesDisplayed] = React.useState<RouteInfo[]>([]);
+  const [routesDisplayed, setRoutesDisplayed] = React.useState<RouteInfo[]>([]);
   // initialize app grabbing data from endpoint
   // TODO: change hardcoded endpoint
   React.useEffect(() => {
@@ -66,14 +66,9 @@ export default function App() {
       <MenuBar />
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Toolbar />
-        <Map routes={routesDislayed}></Map>
+        <Map routes={routesDisplayed}></Map>
       </Box>
-      <FilterBar filterHandler={setFilterBy} drawerWidth={240}></FilterBar>
-      {/* <Container maxWidth="sm">
-        <Box sx={{ my: 1 }}>
-          <Copyright />
-        </Box>
-      </Container> */}
+      <FilterBar filterHandler={setFilterBy} drawerWidth={drawerWidth}></FilterBar>
     </Box>
   );
 }

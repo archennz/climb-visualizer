@@ -10,7 +10,7 @@ import { Feature, FeatureCollection } from "geojson";
 import "mapbox-gl/dist/mapbox-gl.css";
 import RouteMarker from "./RouteMarker";
 import RouteInfo from "../models/routeInfo";
-import { layerStyle } from "./map-style";
+import { circleLayerStyle, heatMapLayerStyle } from "./map-style";
 
 const TOKEN = process.env.REACT_APP_MAP_TOKEN || "";
 
@@ -50,7 +50,8 @@ const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
       onViewportChange={setViewport}
     >
       <Source id="my-data" type="geojson" data={geojson}>
-        <Layer {...layerStyle}></Layer>
+        <Layer {...heatMapLayerStyle}></Layer>
+        <Layer {...circleLayerStyle}></Layer>
       </Source>
       {markers}
     </ReactMapGL>

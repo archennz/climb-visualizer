@@ -82,6 +82,9 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
         <Toolbar />
         <Divider />
         <Stack direction="column" sx={{ overflow: "auto", display: "flex" }}>
+          <Box>
+            <Typography variant="h6">Grades:</Typography>
+          </Box>
           <Box sx={{ height: "70vh", p: 2, width: "2" }}>
             <Slider
               min={marksMin}

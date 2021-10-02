@@ -17,19 +17,18 @@ export default class RouteInfo {
     this.rating = routeJson["rating"];
     this.grade = routeJson["grade"]
     this.stars = routeJson["stars"]
-    // probably more to come
-    // maybe the wobble will come here
   }
 
   getCoordinates(): Position {
     return [this.longitude, this.latitude];
   }
 
+
   getFeature(): Feature {
     return {
       type: "Feature",
       geometry: { type: "Point", coordinates: this.getCoordinates() },
-      properties: {},
+      properties: {"stars": this.stars},
     };
   }
 }
