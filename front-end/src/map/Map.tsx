@@ -7,12 +7,12 @@ import ReactMapGL, {
   LayerProps,
 } from "react-map-gl";
 import { Feature, FeatureCollection } from "geojson";
-import "mapbox-gl/dist/mapbox-gl.css";
+// import "mapbox-gl/dist/mapbox-gl.css";
 import RouteMarker from "./RouteMarker";
 import RouteInfo from "../models/routeInfo";
 import { circleLayerStyle, heatMapLayerStyle } from "./map-style";
 
-const TOKEN = process.env.REACT_APP_MAP_TOKEN || "";
+const TOKEN = "pk.eyJ1IjoiYm9va2J1Z2RvbmFsZCIsImEiOiJja3RwNWJiOXEwajhhMnhvM2JveGZucDRlIn0.wr3vf82KRak3YLNGv7GF0A";
 
 const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
   const [viewport, setViewport] = React.useState({
