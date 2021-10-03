@@ -68,5 +68,6 @@ export const circleLayerStyle: LayerProps = {
         [15, 1],
       ],
     },
+    "circle-color": "#a87a34"
   },
 };

@@ -71,7 +71,7 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
 
   const marksMin = 1;
   const marksMax = 14;
-  const marksList = Array.from({ length: marksMax + 1 }).map((_, index) => {
+  const marksList = Array.from({ length: marksMax }).map((_, index) => {
     const num = index + marksMin;
     return {
       value: num,

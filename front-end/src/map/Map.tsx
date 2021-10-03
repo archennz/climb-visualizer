@@ -46,6 +46,7 @@ const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
   return (
     <ReactMapGL
       mapboxApiAccessToken={TOKEN}
+      mapStyle="mapbox://styles/mapbox/dark-v10"
       {...viewport}
       width="fit"
       height="calc(100vh - 64px)"
