@@ -7,7 +7,7 @@ import ReactMapGL, {
   LayerProps,
 } from "react-map-gl";
 import { Feature, FeatureCollection } from "geojson";
-// import "mapbox-gl/dist/mapbox-gl.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import RouteMarker from "./RouteMarker";
 import RouteInfo from "../models/routeInfo";
 import { circleLayerStyle, heatMapLayerStyle } from "./map-style";
