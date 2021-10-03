@@ -8,7 +8,7 @@ export default class RouteInfo {
   rating: string;
   grade: number;
   stars: number;
-  safety: "S"|"R"|"PG13"|"X";
+  safety: "S" | "R" | "PG13" | "X";
 
   constructor(routeJson: any) {
     this.id = routeJson["id"];
@@ -16,21 +16,20 @@ export default class RouteInfo {
     this.latitude = routeJson["latitude"];
     this.name = routeJson["name"];
     this.rating = routeJson["rating"];
-    this.grade = routeJson["grade"]
-    this.stars = routeJson["stars"]
-    this.safety = routeJson["safety"]
+    this.grade = routeJson["grade"];
+    this.stars = routeJson["stars"];
+    this.safety = routeJson["safety"];
   }
 
   getCoordinates(): Position {
     return [this.longitude, this.latitude];
   }
 
-
   getFeature(): Feature {
     return {
       type: "Feature",
       geometry: { type: "Point", coordinates: this.getCoordinates() },
-      properties: {"stars": this.stars},
+      properties: { stars: this.stars },
     };
   }
 }

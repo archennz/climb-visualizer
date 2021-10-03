@@ -35,33 +35,38 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
   const gradeCommitHandler = (event: any, newValue: any) => {
     console.log(newValue);
     const [minGrade, maxGrade] = newValue;
-    props.filterHandler(
-      (prevFilter) => ({...prevFilter, minGrade: minGrade, maxGrade: maxGrade})
-    )
+    props.filterHandler((prevFilter) => ({
+      ...prevFilter,
+      minGrade: minGrade,
+      maxGrade: maxGrade,
+    }));
   };
 
   // TODO: fix type on this
   const isPGHandler = (event: any) => {
     setIsPG((prev) => !prev);
-    props.filterHandler(
-      (prevFilter) => ({...prevFilter, includePG : event.target.checked })
-    )
+    props.filterHandler((prevFilter) => ({
+      ...prevFilter,
+      includePG: event.target.checked,
+    }));
   };
 
   // TODO: fix type on this
   const isXHandler = (event: any) => {
     setIsX((prev) => !prev);
-    props.filterHandler(
-      (prevFilter) => ({...prevFilter, includeX : event.target.checked })
-    )
+    props.filterHandler((prevFilter) => ({
+      ...prevFilter,
+      includeX: event.target.checked,
+    }));
   };
 
   // TODO: fix type on this
   const isRHandler = (event: any) => {
     setIsR((prev) => !prev);
-    props.filterHandler(
-      (prevFilter) => ({...prevFilter, includeR : event.target.checked })
-    )
+    props.filterHandler((prevFilter) => ({
+      ...prevFilter,
+      includeR: event.target.checked,
+    }));
   };
 
   const marksMin = 1;

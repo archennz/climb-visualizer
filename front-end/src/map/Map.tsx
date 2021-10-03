@@ -37,7 +37,9 @@ const Map: React.FC<{ routes: RouteInfo[] }> = (props) => {
   // Only rerender markers if props.routes has changed
   const markers = React.useMemo(
     () =>
-      props.routes.map((route) => <RouteMarker key={route.id} route={route}></RouteMarker>),
+      props.routes.map((route) => (
+        <RouteMarker key={route.id} route={route}></RouteMarker>
+      )),
     [props.routes]
   );
 

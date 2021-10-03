@@ -18,8 +18,8 @@ export const heatMapLayerStyle: LayerProps = {
     "heatmap-intensity": {
       stops: [
         [11, 1],
-        [15, 3]
-      ]
+        [15, 3],
+      ],
     },
     // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
     // Begin color ramp at 0-stop with a 0-transparancy color
@@ -45,28 +45,28 @@ export const heatMapLayerStyle: LayerProps = {
     "heatmap-radius": {
       stops: [
         [11, 15],
-        [15, 20]
-      ]
+        [15, 20],
+      ],
     },
     // Transition from heatmap to circle layer by zoom level
     "heatmap-opacity": {
       stops: [
         [14, 1],
-        [15, 0]
-      ]
+        [15, 0],
+      ],
     },
   },
 };
 
 export const circleLayerStyle: LayerProps = {
-  type: 'circle',
+  type: "circle",
   minzoom: 14,
   paint: {
-    'circle-opacity': {
+    "circle-opacity": {
       stops: [
         [14, 0],
-        [15, 1]
-      ]
-    } 
-  }
-}
+        [15, 1],
+      ],
+    },
+  },
+};

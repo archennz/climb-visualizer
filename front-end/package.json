@@ -3,6 +3,7 @@
   "version": "5.0.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.15.5",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@mui/icons-material": "^5.0.0",

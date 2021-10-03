@@ -37,7 +37,7 @@ export default function App() {
   // TODO: change hardcoded endpoint
   React.useEffect(() => {
     async function getData() {
-      const response = await fetch("http://localhost:3000/data");
+      const response = await fetch("http://localhost:3000/api/data");
       const data = await response.json();
       const routes = data.map((routeJson: any) => new RouteInfo(routeJson));
       setRoutes(routes);
@@ -56,17 +56,20 @@ export default function App() {
   });
 
   React.useEffect(() => {
-    console.log(filterBy)
+    console.log(filterBy);
     const filterByGradeAndRating = (route: RouteInfo) => {
-      const byGrade = route.grade < filterBy.maxGrade && route.grade> filterBy.minGrade;
-      const isS = route.safety == "S"
-      const isPG = route.safety == "PG13" && filterBy.includePG
-      const isX = route.safety == "X" && filterBy.includeX
-      const isR = route.safety == "R" && filterBy.includeR
-      return byGrade && (isS || isPG || isX || isR)
-    }
-    const filteredRoutes = routes.filter(route => (filterByGradeAndRating(route)))
-    setRoutesDisplayed(filteredRoutes)
+      const byGrade =
+        route.grade < filterBy.maxGrade && route.grade > filterBy.minGrade;
+      const isS = route.safety == "S";
+      const isPG = route.safety == "PG13" && filterBy.includePG;
+      const isX = route.safety == "X" && filterBy.includeX;
+      const isR = route.safety == "R" && filterBy.includeR;
+      return byGrade && (isS || isPG || isX || isR);
+    };
+    const filteredRoutes = routes.filter((route) =>
+      filterByGradeAndRating(route)
+    );
+    setRoutesDisplayed(filteredRoutes);
   }, [filterBy, routes]);
 
   return (
@@ -76,7 +79,10 @@ export default function App() {
         <Toolbar />
         <Map routes={routesDisplayed}></Map>
       </Box>
-      <FilterBar filterHandler={setFilterBy} drawerWidth={drawerWidth}></FilterBar>
+      <FilterBar
+        filterHandler={setFilterBy}
+        drawerWidth={drawerWidth}
+      ></FilterBar>
     </Box>
   );
 }
