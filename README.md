@@ -1,7 +1,7 @@
 # Climb Visualizer
 
-[Demo Link](https://climb-visualizer.herokuapp.com/)
-
+Demo Link : [https://climb-visualizer.herokuapp.com/](https://climb-visualizer.herokuapp.com/)
+![screenshot](./screenshots/appshot.png)
 This projects uses data from Mountain Project (popular website in the U.S. to rate rock climbs) to visualize climbs by stars and difficulty. The heat map allows the user to visualize the density of highly rated climbs at each location. The slider lets the user to set of the diffculty range, and the check box lets the user to filter for protection ratings (X, R, PG13).
 
 The climbing diffculty/grading is in Yosemite Decimal System (YDS).
