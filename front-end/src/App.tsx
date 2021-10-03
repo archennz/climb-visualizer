@@ -37,7 +37,7 @@ export default function App() {
   // TODO: change hardcoded endpoint
   React.useEffect(() => {
     async function getData() {
-      const response = await fetch("http://localhost:3000/api/data");
+      const response = await fetch("api/data");
       const data = await response.json();
       const routes = data.map((routeJson: any) => new RouteInfo(routeJson));
       setRoutes(routes);
