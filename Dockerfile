@@ -14,7 +14,7 @@ RUN npm ci
 # Bundle app source
 COPY front-end .
 
-CMD [ "npm", "run", "build" ]
+RUN npm run build
 
 
 FROM node:16-alpine
@@ -33,7 +33,7 @@ RUN npm ci
 # Bundle app source
 COPY back-end ./
 RUN true
-COPY --from=builder /usr/app/front-end/build /usr/app/front-end
+COPY --from=builder /usr/app/front-end/build /usr/app/front-end/build
 
 EXPOSE 3000
 CMD [ "npm", "run", "start" ]
