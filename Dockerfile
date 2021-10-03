@@ -32,6 +32,7 @@ RUN npm ci
 
 # Bundle app source
 COPY back-end ./
+RUN true
 COPY --from=builder /usr/app/front-end/build /usr/app/front-end
 
 EXPOSE 3000
