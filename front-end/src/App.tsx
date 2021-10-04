@@ -5,6 +5,7 @@ import MenuBar from "./toolbar/MenuBar";
 import RouteInfo from "./models/routeInfo";
 import FilterBar from "./toolbar/FilterBar";
 import { Toolbar } from "@mui/material";
+import HelpText from "./components/HelpText";
 
 export interface FilterProps {
   maxGrade: number;
@@ -57,6 +58,8 @@ export default function App() {
   }, [filterBy, routes]);
 
   return (
+    <div>
+    <HelpText></HelpText>
     <Box sx={{ display: "flex" }}>
       <MenuBar />
       <Box component="main" sx={{ flexGrow: 1 }}>
@@ -68,5 +71,6 @@ export default function App() {
         drawerWidth={drawerWidth}
       ></FilterBar>
     </Box>
+    </div>
   );
 }
