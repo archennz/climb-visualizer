@@ -1,8 +1,5 @@
 import * as React from "react";
-import ReactMapGL, {
-  Source,
-  Layer,
-} from "react-map-gl";
+import ReactMapGL, { Source, Layer } from "react-map-gl";
 import { FeatureCollection } from "geojson";
 import "mapbox-gl/dist/mapbox-gl.css";
 import RouteMarker from "./RouteMarker";
