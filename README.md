@@ -6,6 +6,8 @@ This projects uses data from Mountain Project (popular website in the U.S. to ra
 
 The climbing diffculty/grading is in Yosemite Decimal System (YDS).
 
+This project is build using `create-react-app` with UI components from `material-UI`, the backend is created using `NestJS`.
+
 ## Technical Info
 You can run the app end to end using docker (this is what Heroku uses).
 ```
