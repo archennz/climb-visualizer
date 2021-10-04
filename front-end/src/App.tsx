@@ -59,18 +59,18 @@ export default function App() {
 
   return (
     <div>
-    <HelpText></HelpText>
-    <Box sx={{ display: "flex" }}>
-      <MenuBar />
-      <Box component="main" sx={{ flexGrow: 1 }}>
-        <Toolbar />
-        <Map routes={routesDisplayed}></Map>
+      <HelpText></HelpText>
+      <Box sx={{ display: "flex" }}>
+        <MenuBar />
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <Toolbar />
+          <Map routes={routesDisplayed}></Map>
+        </Box>
+        <FilterBar
+          filterHandler={setFilterBy}
+          drawerWidth={drawerWidth}
+        ></FilterBar>
       </Box>
-      <FilterBar
-        filterHandler={setFilterBy}
-        drawerWidth={drawerWidth}
-      ></FilterBar>
-    </Box>
     </div>
   );
 }
