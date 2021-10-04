@@ -14,20 +14,18 @@ const RouteCard: React.FC<{ route: RouteInfo }> = (props) => {
   );
 };
 
+// TODO: make this more harmonious with the heatmap
 const RouteMarker: React.FC<{ route: RouteInfo }> = (props) => {
-  // const key = props.route.id;
   const longitude = props.route.longitude;
   const latitude = props.route.latitude;
   const [displayPopup, setDisplayPopup] = React.useState(false);
 
-  //TODO the popup is displayed at every zoom level, maybe don't want
   return (
     <div
       onMouseEnter={() => setDisplayPopup(true)}
       onMouseLeave={() => setDisplayPopup(false)}
     >
       <Marker
-        // key={key}
         longitude={longitude}
         latitude={latitude}
         offsetLeft={-20}

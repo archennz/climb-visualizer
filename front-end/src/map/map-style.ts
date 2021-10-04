@@ -1,6 +1,6 @@
 import { LayerProps } from "react-map-gl";
 
-// fix the layer props on this later
+// styles for the heatmap
 export const heatMapLayerStyle: LayerProps = {
   type: "heatmap",
   paint: {
@@ -58,6 +58,7 @@ export const heatMapLayerStyle: LayerProps = {
   },
 };
 
+// styles for points when zoom is greater than 14
 export const circleLayerStyle: LayerProps = {
   type: "circle",
   minzoom: 14,
@@ -68,6 +69,6 @@ export const circleLayerStyle: LayerProps = {
         [15, 1],
       ],
     },
-    "circle-color": "#a87a34"
+    "circle-color": "#a87a34",
   },
 };

@@ -1,9 +1,7 @@
 import * as React from "react";
 import { AppBar, Button, IconButton, Toolbar } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { Box } from "@mui/system";
-import FilterBar from "./FilterBar";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
+
 
 const MenuBar: React.FC = () => {
   const drawerWidth = 240;

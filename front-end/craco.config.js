@@ -1,7 +1,7 @@
 module.exports = {
-    babel: {
-      loaderOptions: {
-        ignore: ['./node_modules/'],
-      },
+  babel: {
+    loaderOptions: {
+      ignore: ["./node_modules/"],
     },
-  }
+  },
+};

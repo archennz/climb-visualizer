@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
-import { createTrue } from "typescript";
 import { FilterProps } from "../App";
 
 export interface FilterBarProps {
