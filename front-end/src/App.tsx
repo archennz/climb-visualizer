@@ -15,7 +15,7 @@ export interface FilterProps {
 }
 
 export default function App() {
-  const drawerWidth = 150;
+  const drawerWidth = 180;
 
   const [routes, setRoutes] = React.useState<RouteInfo[]>([]);
   const [routesDisplayed, setRoutesDisplayed] = React.useState<RouteInfo[]>([]);
