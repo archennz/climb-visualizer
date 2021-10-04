@@ -1,6 +1,7 @@
 import { Backdrop, Button, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import * as React from "react";
+import { readBuilderProgram } from "typescript";
 
 const HelpText = () => {
   const [open, setOpen] = React.useState(true);
@@ -11,7 +12,7 @@ const HelpText = () => {
   return (
     <Backdrop
       open={open}
-      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      sx={{ color: "#fff", backgroundColor: "#000000cc", zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <Box sx={{ width: 350, height: 350 }}>
         <Typography paragraph={true}>
