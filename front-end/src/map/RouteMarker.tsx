@@ -2,6 +2,7 @@ import * as React from "react";
 import { Marker, Popup } from "react-map-gl";
 import RouteInfo from "../models/routeInfo";
 
+// popups for routes
 const RouteCard: React.FC<{ route: RouteInfo }> = (props) => {
   const longitude = props.route.longitude;
   const latitude = props.route.latitude;
